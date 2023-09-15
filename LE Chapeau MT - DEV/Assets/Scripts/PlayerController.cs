@@ -114,7 +114,6 @@ public class PlayerController : MonoBehaviourPunCallbacks, IPunObservable
 
         Instantiate(myObjects[randomIndex], randomSpawnPosition, Quaternion.identity);
 
-        if
     }
 
     public void OnPhotonSerializeView (PhotonStream stream, PhotonMessageInfo info)
