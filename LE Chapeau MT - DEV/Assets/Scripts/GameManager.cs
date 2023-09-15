@@ -51,6 +51,7 @@ public class GameManager : MonoBehaviourPunCallbacks
 
     void SpawnPlayer ()
     {
+        
         GameObject playerObj = PhotonNetwork.Instantiate(playerPrefabLocation, spawnPoints[Random.Range(0, spawnPoints.Length)].position, Quaternion.identity);
 
         PlayerController playerScript = playerObj.GetComponent<PlayerController>();

@@ -602,7 +602,7 @@ MonoBehaviour:
   gameEnded: 0
   timeToWin: 15
   invincibleDuration: 0.5
-  playerPrefabLocation: Player
+  playerPrefabLocation: Player1
   spawnPoints:
   - {fileID: 928545623}
   - {fileID: 2157381}
