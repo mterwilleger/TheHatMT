@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviourPunCallbacks, IPunObservable
     [HideInInspector]
     public int id;
 
+    public GameObject[] myObjects;
 
     [Header("Info")]
     public float moveSpeed;
@@ -101,6 +102,19 @@ public class PlayerController : MonoBehaviourPunCallbacks, IPunObservable
                 }
             }
         }
+
+        SpawnObject();
+    }
+
+    public void SpawnObject()
+    {
+        //Spawns objects
+        int randomIndex = Random.Range(0, myObjects.Length);
+        Vector3 randomSpawnPosition = new Vector3(Random.Range(-15, 15), 10, Random.Range(-15, 15));
+
+        Instantiate(myObjects[randomIndex], randomSpawnPosition, Quaternion.identity);
+
+        if
     }
 
     public void OnPhotonSerializeView (PhotonStream stream, PhotonMessageInfo info)
