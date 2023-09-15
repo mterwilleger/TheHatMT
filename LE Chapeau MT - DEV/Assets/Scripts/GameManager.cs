@@ -20,6 +20,10 @@ public class GameManager : MonoBehaviourPunCallbacks
     public int playerWithHat;
     private int playersInGame;
 
+    [Header("Wall")]
+    public Transform[] wallSpawnPoints;
+    public string wallPrefabLocation;
+    public GameObject[] myObjects;
 
     //instance
     public static GameManager instance; 
@@ -87,6 +91,22 @@ public class GameManager : MonoBehaviourPunCallbacks
             return true;
         else
             return false;
+    }
+
+     public void OnCollisionEnter(Collision collision)
+    {
+      
+        GameObject wallObj = PhotonNetwork.Instantiate(wallPrefabLocation, wallSpawnPoints[Random.Range(0, wallSpawnPoints.Length)].position, Quaternion.identity);
+        SpawnObject();
+    }
+    
+    public void SpawnObject()
+    {
+        //Spawns objects
+        int randomIndex = Random.Range(0, myObjects.Length);
+        Vector3 randomSpawnPosition = new Vector3(Random.Range(-15, 15), 10, Random.Range(-15, 15));
+
+        Instantiate(myObjects[randomIndex], randomSpawnPosition, Quaternion.identity);
     }
 
     [PunRPC]
