@@ -23,6 +23,11 @@ public class PlayerController : MonoBehaviourPunCallbacks, IPunObservable
     public Rigidbody rig;
     public Player photonPlayer;
     
+    // [Header("Wall")]
+    // public GameObject[] myWall;
+    // public Transform[] wallSpawnPoints;
+    // public string wallPrefabLocation;
+    
 
     [PunRPC]
     public void Initialize (Player player)
@@ -102,7 +107,18 @@ public class PlayerController : MonoBehaviourPunCallbacks, IPunObservable
                 }
             }
         }
+        // SpawnObject();
     }
+
+    // public void SpawnObject()
+    // {
+    //     //Spawns objects
+    //     int randomIndex = Random.Range(0, myWall.Length);
+    //     Vector3 randomWallSpawnPosition = new Vector3(Random.Range(-20, 20), 10, Random.Range(20, -20));
+
+    //     Instantiate(myWall[randomIndex], randomWallSpawnPosition, Quaternion.identity);
+    // }
+
 
   
 
